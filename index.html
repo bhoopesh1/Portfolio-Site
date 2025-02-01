@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sudhanthiran's Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
   <style>
     /* General Styles */
     
@@ -141,37 +144,79 @@
   <!-- ... -->
     <!-- Header Section -->
     <div class="container" id="home">
-      <h1>SUDHANTHIRAN</h1>
+      <div class="title-container">
+        <h1 class="matrix-title">SUDHANTHIRAN</h1>
+        <img src="sudanthiranphoto-removebg-preview.png" alt="Sudhanthiran" class="profile-image">
+      </div>
       <h2 class="side">{SUDHANTHIRAN}</h2>
       <p>Software Engineer, Front-end & App Developer</p>
     </div>
   
     <div class="projects-section" id="work">
+      <div class="scroll-buttons-container">
+        <button class="scroll-button scroll-left">←</button>
+        <button class="scroll-button scroll-right">→</button>
+      </div>
       <div class="projects-container">
         <div class="project-card">
-          <img src="/api/placeholder/500/300" alt="Project 1">
-          <h3>Project Title 1</h3>
-          <p>Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <img src="https://raw.githubusercontent.com/nsudhanthiran/AI-PPT-generation/main/static/images/bg1.png" alt="AI PPT Generation">
+          <h3>
+            <a href="https://github.com/nsudhanthiran/AI-PPT-generation" target="_blank">
+              AI-PPT-generation
+              <img src="github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
+          <p>PowerPoint automation using LLaMA2, featuring PDF conversion and Flask interface. Creates precise, well-formatted presentations through AI-driven prompts, streamlining the design process.</p>
         </div>
         <div class="project-card">
-          <img src="/api/placeholder/500/300" alt="Project 2">
-          <h3>Project Title 2</h3>
-          <p>Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <img src="https://raw.githubusercontent.com/nsudhanthiran/AI-Based-Job-Search/main/static/1.jpg" alt="AI Job Search Platform">
+          <h3>
+            <a href="https://github.com/nsudhanthiran/AI-Based-Job-Search" target="_blank">
+              AI aided jobseeking
+              <img src="github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
+          <p>One-shot platform parsing resumes and matching relevant jobs using PyPDF2, Langchain, and Huggingface Transformers. Features Django backend, Beautifulsoup webscraping, and Intel Devcloud deployment.</p>
         </div>
         <div class="project-card">
           <img src="/api/placeholder/500/300" alt="Project 3">
-          <h3>Project Title 3</h3>
+          <h3>
+            <a href="https://github.com/nsudhanthiran/project3" target="_blank">
+              Project Title 3
+              <img src="github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
           <p>Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
         <div class="project-card">
           <img src="/api/placeholder/500/300" alt="Project 4">
-          <h3>Project Title 4</h3>
+          <h3>
+            <a href="https://github.com/nsudhanthiran/project4" target="_blank">
+              Project Title 4
+              <img src="github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
           <p>Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
         <div class="project-card">
           <img src="/api/placeholder/500/300" alt="Project 5">
-          <h3>Project Title 5</h3>
+          <h3>
+            <a href="https://github.com/nsudhanthiran/project5" target="_blank">
+              Project Title 5
+              <img src="github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
           <p>Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="project-card">
+          <img src="yourtunes-preview.jpg" alt="YourTunes - AI Music Platform">
+          <h3>
+            <a href="https://github.com/nsudhanthiran/yourtunes" target="_blank">
+              YourTunes
+              <img src="github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
+          <p>AI-powered Spotify playlist generator that creates personalized playlists based on your mood using Flask and Gemini LLM. Features Spotify integration, intuitive UI, and intelligent song selection.</p>
         </div>
       </div>
     </div>
@@ -225,12 +270,10 @@
         </div>
       </div>
       
-      <!-- Custom Cursor -->
-      <div class="cursor-dot"></div>
-      <div class="cursor-glow"></div>
+      <!-- Replace the cursor elements with this: -->
+      <div class="custom-cursor"></div>
+    </div>
 
-  <script src="script.js">
-    
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

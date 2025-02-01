@@ -6,30 +6,26 @@ body {
     padding: 0;
     cursor: none;
     overflow-x: hidden;
-  }
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+                url('https://images.unsplash.com/photo-1511512578047-dfb367046420') no-repeat center center fixed;
+    background-size: cover;
+}
 
-  /* Background Container */
-  .background-container {
+/* Remove the gradient overlay */
+
+.background-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: -1; /* Change back to -1 from -2 */
     pointer-events: none;
-  }
+    opacity: 0.7; /* Make SVG slightly transparent to blend with bg */
+}
 
-  .background-container svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .grid-line {
-    transition: d 0.15s ease-out;
-  }
-
-  /* Rest of your existing styles */
-  .nav-menu {
+/* Rest of your existing styles */
+.nav-menu {
     background-color: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
     border-radius: 28px;
@@ -39,72 +35,79 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-  }
+}
 
-  .nav-menu a {
+.nav-menu a {
     color: rgb(255, 255, 255);
     font-weight: bold;
     margin: 0 15px;
     text-decoration: none;
     transition: color 0.3s;
-  }
+}
 
-  .nav-menu a:hover {
+.nav-menu a:hover {
     color: #2d3748;
-  }
+}
 
-  /* Your other existing styles remain the same */
-  /* ... */
+/* Your other existing styles remain the same */
+/* ... */
 
-      /* Header Section */
-      .container {
+/* Header Section */
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-  }
+}
 
-  h1 {
+h1 {
     font-size: 6rem;
     font-weight: bold;
     margin-bottom: 1rem;
-  }
+}
 
-  p {
+h1, .side, .project-card h3 {
+    font-family: 'Honk', system-ui;
+}
+
+p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-  }
+}
 
-  .side {
+.side {
     position: absolute;
     top: 25px;
     left: 30px;
-  }
+}
 
-  .projects-section {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-snap-type: x mandatory; /* Smooth snapping */
-    scrollbar-width: none; /* Hides the scrollbar for Firefox */
-    -ms-overflow-style: none; /* Hides the scrollbar for IE and Edge */
-  }
+.projects-section {
+    position: relative; /* Ensure this is set for absolute positioning context */
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 20px 0;
+    padding-top: 60px; /* Added padding to make room for buttons */
+}
 
-  .projects-section::-webkit-scrollbar {
+.projects-section::-webkit-scrollbar {
     display: none; /* Hides the scrollbar for Chrome, Safari, and Edge */
-  }
+}
 
-  .projects-container {
+.projects-container {
+    position: relative; /* Add this to contain the buttons */
     display: flex;
     gap: 30px; /* Spacing between project cards */
-    padding: 50px 50px 50px 100px ;
-  }
+    padding: 50px 0 50px 50px; /* Reduced left padding from 100px to 50px */
+    min-width: max-content; /* Ensure container expands to fit all cards */
+}
 
-  .project-card {
-    flex-shrink: 0;
-    min-width: 400px;
-    height: 400px;
+.project-card {
+    flex: 0 0 500px; /* Increased width for more rectangular shape */
+    height: 300px; /* Reduced height */
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -112,67 +115,109 @@ body {
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease; /* Smooth hover effect */
-    scroll-snap-align: start; /* Snaps cards into view */
-  }
-
-  .project-card:first-child {
-    margin-left: 50px;
+    position: relative; /* Add this for positioning the link */
 }
 
-  .project-card:hover {
-    transform: translateY(-10px);
-  }
+.project-card:first-child {
+    margin-left: 0; /* Remove the left margin from first card */
+}
 
-  .project-card img {
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
     width: 100%;
-    height: 200px;
+    height: 87px; /* Set to exactly 87px */
     object-fit: cover;
     border-radius: 15px;
-  }
+}
 
-  .project-card h3 {
-    margin: 20px 0;
-    font-size: 2rem;
-  }
+.project-card h3 {
+    margin: 15px 0; /* Reduced margin */
+    font-size: 2.2rem; /* Increased to accommodate the new font */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-  .project-card p {
+.project-card h3 a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduced from 10px to bring logo closer */
+}
+
+.project-card h3 a:hover {
+    color: #4a9eff;
+}
+
+.project-card h3 a img.github-icon {
+    width: 55px !important; /* Make even smaller and ensure it overrides */
+    height: 55px !important;
+    opacity: 100;
+    transition: opacity 0.3s ease;
+    margin-top: 6px;
+    margin-left: 4px;
+}
+
+.project-card h3 a:hover img.github-icon {
+    opacity: 1;
+}
+
+.project-card p {
     color: #cccccc;
     font-size: 1.2rem;
     line-height: 1.6;
-  }
+}
 
-  /* Custom Cursor */
-  .cursor-glow {
-    width: 25px;
-    height: 25px;
-    background-color: #ffff00;
-    border-radius: 50%;
+.project-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+    transform: translateX(5px);
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    width: 50px;  /* increased from 20px */
+    height: 50px; /* increased from 20px */
     position: fixed;
     pointer-events: none;
-    opacity: 0.5;
-    filter: blur(4px);
-    z-index: 9998;
-  }
+    z-index: 9999;
+    background-image: url('cursor.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
-  .contact-section {
+.contact-section {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 6rem 2rem;
-  }
-  
-  .background-svg {
+}
+
+.background-svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-  }
-  
-  .contact-container {
+}
+
+.contact-container {
     max-width: 1400px;
     width: 100%;
     display: grid;
@@ -180,42 +225,42 @@ body {
     gap: 6rem;
     position: relative;
     z-index: 2;
-  }
-  
-  /* Left Side Styles */
-  .contact-info {
+}
+
+/* Left Side Styles */
+.contact-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     padding: 2rem 0;
-  }
-  
-  .text-content {
+}
+
+.text-content {
     margin-bottom: 4rem;
-  }
-  
-  .contact-info h2 {
+}
+
+.contact-info h2 {
     font-size: 4rem;
     font-weight: bold;
     color: white;
     line-height: 1.1;
     margin-bottom: 2rem;
-  }
-  
-  .contact-info .subtitle {
+}
+
+.contact-info .subtitle {
     font-size: 1.1rem;
     color: #888;
     line-height: 1.6;
-  }
-  
-  .contact-links {
+}
+
+.contact-links {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-  }
-  
-  .email-link {
+}
+
+.email-link {
     font-size: 1.1rem;
     color: white;
     text-decoration: none;
@@ -223,39 +268,39 @@ body {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     width: fit-content;
-  }
-  
-  .social-links {
+}
+
+.social-links {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-  
-  .social-link {
+}
+
+.social-link {
     color: #888;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
-  }
-  
-  .social-link:hover {
+}
+
+.social-link:hover {
     color: white;
-  }
-  
-  /* Right Side Styles */
-  .contact-form-container {
+}
+
+/* Right Side Styles */
+.contact-form-container {
     width: 100%;
-  }
-  
-  .contact-form {
+}
+
+.contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     width: 100%;
-  }
-  
-  .form-group input,
-  .form-group textarea {
+}
+
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 1rem 1.25rem;
     background: rgba(255, 255, 255, 0.05);
@@ -263,29 +308,29 @@ body {
     border-radius: 8px;
     color: white;
     font-size: 1rem;
-  }
-  
-  .form-group input {
+}
+
+.form-group input {
     height: 3.5rem;
-  }
-  
-  .form-group textarea {
+}
+
+.form-group textarea {
     min-height: 200px;
     resize: vertical;
-  }
-  
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
     color: #666;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.08);
-  }
-  
-  button {
+}
+
+button {
     width: 100%;
     background: #2255dd;
     color: white;
@@ -296,70 +341,142 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 0.5rem;
-  }
-  
-  button:hover {
-    background: #2b62ff;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 1200px) {
-    .contact-container {
-      gap: 4rem;
-    }
-    
-    .contact-info h2 {
-      font-size: 3.5rem;
-    }
-  }
-  
-  @media (max-width: 992px) {
-    .contact-container {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    
-    .contact-info {
-      padding: 0;
-    }
-    
-    .text-content {
-      margin-bottom: 2rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .contact-section {
-      padding: 4rem 1.5rem;
-    }
-    
-    .contact-info h2 {
-      font-size: 2.5rem;
-    }
-  }
+}
 
-  #bg-container {
+button:hover {
+    background: #2b62ff;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .contact-container {
+        gap: 4rem;
+    }
+
+    .contact-info h2 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact-info {
+        padding: 0;
+    }
+
+    .text-content {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .contact-info h2 {
+        font-size: 2.5rem;
+    }
+}
+
+#bg-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-  }
+}
 
-  #bg-container svg {
-      width: 100%;
-      height: 100%;
-  }
+#bg-container svg {
+    width: 100%;
+    height: 100%;
+}
 
-  .grid-line {
-        transition: d 0.15s ease-out;
-  }
+.grid-line {
+    transition: d 0.15s ease-out;
+}
 
-  .background-container {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-      }
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.scroll-buttons-container {
+    position: absolute;
+    top: -60px; /* Position above the container */
+    right: 50px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.scroll-button {
+    position: relative; /* Changed from fixed */
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Remove the individual positioning classes since they're now in a flex container */
+.scroll-right, .scroll-left {
+    top: unset;
+}
+
+/* ...existing code... */
+
+.title-container {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;  /* Changed to reverse order */
+    align-items: center;
+    gap: 20px;
+}
+
+.matrix-title {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-top: 20px;  /* Changed from margin-bottom */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Remove or comment out the existing profile image styles */
+.profile-image {
+    display: block;
+    width: 250px;
+    height: 275px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: scale(1.0);
+    filter: blur(10px);
+    margin: 0;
+}
+
+/* Remove these classes completely */
+.corner-capsule {
+    display: none;
+}
+
+.corner-profile {
+    display: none;
+}
+
+/* ...existing code... */
