@@ -14,6 +14,10 @@
   </style>
 </head>
 <body>
+  <div class="custom-cursor"></div>
+  <div class="corner-profile">
+    <img src="sudanthiranphoto-removebg-preview.png" alt="Profile">
+  </div>
   <!-- Background SVG Container - Now with correct class -->
   <div class="background-container">
     <svg class="bg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -134,9 +138,9 @@
   <!-- Navigation -->
   <div class="nav-menu">
     <a href="#home">Home</a>
-    <a href="#expertise">Expertise</a>
+    <a href="#about">About</a>
     <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
+    <a href="#experience">Education & Experience</a>
     <a href="#contact">Contact</a>
   </div>
 
@@ -148,10 +152,20 @@
         <h1 class="matrix-title">SUDHANTHIRAN</h1>
         <img src="sudanthiranphoto-removebg-preview.png" alt="Sudhanthiran" class="profile-image">
       </div>
-      <h2 class="side">{SUDHANTHIRAN}</h2>
       <p>Software Engineer, Front-end & App Developer</p>
     </div>
-  
+
+    <div class="about-section" id="about">
+      <h2>About Me</h2>
+      <p>I'm Sudhanthiran N, an aspiring AI and Data Science engineer passionate about building innovative AI-driven solutions. Currently pursuing my B.Tech in Artificial Intelligence and Data Science at Saranathan College of Engineering, I have hands-on experience in machine learning, deep learning, NLP, and computer vision.</p>
+      
+      <p>I have worked on AI-powered content creation, job-seeking platforms, automated presentation generation, and PDF processing using LLaMA2, LangChain, PyTorch, and Hugging Face. My research internship at NIT Trichy has strengthened my expertise in cutting-edge AI technologies.</p>
+      
+      <p>As the President of Odyssey Coding Club, I actively foster a tech community for AI enthusiasts. My goal is to leverage AI to create impactful solutions across various domains.</p>
+    </div>
+
+    <h1 class="projects-title">Projects</h1>
+
     <div class="projects-section" id="work">
       <div class="scroll-buttons-container">
         <button class="scroll-button scroll-left">←</button>
@@ -179,101 +193,111 @@
           <p>One-shot platform parsing resumes and matching relevant jobs using PyPDF2, Langchain, and Huggingface Transformers. Features Django backend, Beautifulsoup webscraping, and Intel Devcloud deployment.</p>
         </div>
         <div class="project-card">
-          <img src="/api/placeholder/500/300" alt="Project 3">
+          <img src="https://user-images.githubusercontent.com/67329471/230719378-3d40e4a8-4dbb-42d6-aa31-1d8077758ee2.png" alt="Project 3">
           <h3>
-            <a href="https://github.com/nsudhanthiran/project3" target="_blank">
-              Project Title 3
+            <a href="https://github.com/thequantumquirk/habitat-hive" target="_blank">
+              Habit Hive
               <img src="github-logo.png" alt="GitHub" class="github-icon">
             </a>
           </h3>
-          <p>Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Project Details: Habitat Hive is a project that's aimed to solve rental finding
+            problems. Habitat Hive uses a Habitability Index which ranks
+            properties based on the living well-being around the property.</p>
         </div>
         <div class="project-card">
-          <img src="/api/placeholder/500/300" alt="Project 4">
+          <img src="https://raw.githubusercontent.com/nsudhanthiran/Simple_RAG_Gradio/refs/heads/main/demo/0.png" alt="Project 4">
           <h3>
             <a href="https://github.com/nsudhanthiran/project4" target="_blank">
-              Project Title 4
+              Gradio PDF Processing
               <img src="github-logo.png" alt="GitHub" class="github-icon">
             </a>
           </h3>
-          <p>Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Project Details: This project enables a conversational AI interface for processing
+            PDFs and answering user queries through retrieval-based
+            techniques powered by large language models (LLMs). </p>
         </div>
         <div class="project-card">
-          <img src="/api/placeholder/500/300" alt="Project 5">
+          <img src="https://raw.githubusercontent.com/nsudhanthiran/Image_to_prompt/refs/heads/main/Pytorch/Samples/boat.png" alt="Project 5">
           <h3>
-            <a href="https://github.com/nsudhanthiran/project5" target="_blank">
+            <a href="https://github.com/nsudhanthiran/Image_to_prompt" target="_blank">
               Project Title 5
               <img src="github-logo.png" alt="GitHub" class="github-icon">
             </a>
           </h3>
-          <p>Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Project Details: A CNNandLSTMbasedmodeldevelopedusingPytorchtogenerate
+            descriptive prompts from images, inverting the Stable Diffusion
+            Image generation approach..</p>
         </div>
-        <div class="project-card">
-          <img src="yourtunes-preview.jpg" alt="YourTunes - AI Music Platform">
-          <h3>
-            <a href="https://github.com/nsudhanthiran/yourtunes" target="_blank">
-              YourTunes
-              <img src="github-logo.png" alt="GitHub" class="github-icon">
-            </a>
-          </h3>
-          <p>AI-powered Spotify playlist generator that creates personalized playlists based on your mood using Flask and Gemini LLM. Features Spotify integration, intuitive UI, and intelligent song selection.</p>
-        </div>
+        
       </div>
     </div>
     
-    <div class="contact-section" id="contact">
-      <svg class="background-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-        <use href="#darkGradient"></use>
-        <use href="#darkGrid"></use>
-      </svg>
-      
-      <div class="contact-container">
-        <!-- Left Side - Text Content -->
-        <div class="contact-info">
-          <div class="text-content">
-            <h2>Available for select<br>freelance<br>opportunities</h2>
-            <p class="subtitle">Have an exciting project you need help with?<br>Send me an email or contact me via instant message!</p>
-          </div>
-          
-          <div class="contact-links">
-            <a href="mailto:tamal@tamalsen.dev" class="email-link">sudhanthiran@gmail.com</a>
-            <div class="social-links">
-              <a href="#" class="social-link">Messenger</a>
-              <a href="#" class="social-link">LinkedIn</a>
-              <a href="#" class="social-link">Instagram</a>
-              <a href="#" class="social-link">Github</a>
+    <div class="experience-section" id="experience">
+        <h2>Education & Experience</h2>
+        <div class="experience-container">
+            <div class="experience-item">
+                <h3>WORK EXPERIENCE</h3>
+                <h4>Research • Internship</h4>
+                <p class="experience-date">Jun 2023 - Present</p>
+                <p>National Institute Of Technology Trichy, Tiruchirappalli</p>
             </div>
-          </div>
+            
+            <div class="experience-item">
+                <h3>EDUCATION</h3>
+                <h4>B.Tech, Artificial Intelligence And Datascience</h4>
+                <p class="experience-date">2021 - 2025</p>
+                <p>Saranathan College of Engineering</p>
+            </div>
         </div>
-        
-        <!-- Right Side - Contact Form -->
-        <div class="contact-form-container">
-          <form class="contact-form">
-            <div class="form-group">
-              <input type="text" id="name" name="name" placeholder="Full Name" required>
-            </div>
-            
-            <div class="form-group">
-              <input type="email" id="email" name="email" placeholder="Email Address" required>
-            </div>
-            
-            <div class="form-group">
-              <input type="text" id="subject" name="subject" placeholder="Subject" required>
-            </div>
-            
-            <div class="form-group">
-              <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-            </div>
-            
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-      </div>
-      
-      <!-- Replace the cursor elements with this: -->
-      <div class="custom-cursor"></div>
     </div>
 
-  <script src="script.js"></script>
+    <div class="contact-section" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">  
+          <a href="mailto:sudhanthiran@gmail.com" class="footer-link">
+                <img src="email-icon.png" alt="">
+                Email
+            </a>
+            <a href="https://www.linkedin.com/in/sudhanthiran-n/" class="footer-link">
+                <img src="linkedin-icon.png" alt="">
+                LinkedIn
+            </a>
+            <a href="https://www.instagram.com/sudhanthiran_santosh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-link">
+                <img src="instagram-icon.png" alt="">
+                Instagram
+            </a>
+            <a href="https://github.com/nsudhanthiran" class="footer-link">
+                <img src="github-icon.png" alt="">
+                GitHub
+            </a>
+        </div>
+    </footer>
+
+    <div class="custom-cursor"></div>
+    <script src="script.js"></script>
 </body>
 </html>

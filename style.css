@@ -49,10 +49,6 @@ body {
     color: #2d3748;
 }
 
-/* Your other existing styles remain the same */
-/* ... */
-
-/* Header Section */
 .container {
     display: flex;
     flex-direction: column;
@@ -64,7 +60,7 @@ body {
 h1 {
     font-size: 6rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 h1, .side, .project-card h3 {
@@ -82,31 +78,36 @@ p {
     left: 30px;
 }
 
+
 .projects-section {
-    position: relative; /* Ensure this is set for absolute positioning context */
+    position: relative;
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 20px 0;
-    padding-top: 60px; /* Added padding to make room for buttons */
+    white-space: nowrap; /* Ensure horizontal flow */
 }
 
 .projects-section::-webkit-scrollbar {
-    display: none; /* Hides the scrollbar for Chrome, Safari, and Edge */
+    height: 0; /* Hide scrollbar but keep functionality */
+    width: 0;
 }
 
 .projects-container {
-    position: relative; /* Add this to contain the buttons */
     display: flex;
-    gap: 30px; /* Spacing between project cards */
-    padding: 50px 0 50px 50px; /* Reduced left padding from 100px to 50px */
-    min-width: max-content; /* Ensure container expands to fit all cards */
+    gap: 30px;
+    padding: 20px 50px;
+    min-width: max-content;
+    overflow-x: auto; /* Enable horizontal scroll */
+    scroll-snap-type: x mandatory; /* Smooth snap scrolling */
 }
 
 .project-card {
-    flex: 0 0 500px; /* Increased width for more rectangular shape */
+    flex: 0 0 500px; /* Don't allow cards to shrink or grow */
+    scroll-snap-align: start; /* Snap alignment */
+    white-space: normal; /* Reset white-space for card content */
     height: 300px; /* Reduced height */
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
@@ -200,21 +201,38 @@ p {
 }
 
 .contact-section {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.background-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+.contact-section h2 {
+    font-family: 'Honk', system-ui;
+    font-size: 4.5rem;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.contact-container {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 100px;
+}
+
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
 .contact-container {
@@ -225,9 +243,9 @@ p {
     gap: 6rem;
     position: relative;
     z-index: 2;
+    color: rgba(255, 255, 255, 0.13);;
 }
 
-/* Left Side Styles */
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -250,7 +268,7 @@ p {
 
 .contact-info .subtitle {
     font-size: 1.1rem;
-    color: #888;
+    color: #4a9eff;
     line-height: 1.6;
 }
 
@@ -303,11 +321,13 @@ p {
 .form-group textarea {
     width: 100%;
     padding: 1rem 1.25rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.275);
     border: none;
     border-radius: 8px;
     color: white;
     font-size: 1rem;
+    border-color: black;
+    border-width: 10px;
 }
 
 .form-group input {
@@ -321,13 +341,14 @@ p {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: #666;
+    color: #ffffff;
+
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.276);
 }
 
 button {
@@ -345,6 +366,43 @@ button {
 
 button:hover {
     background: #2b62ff;
+}
+
+/* Footer Styles */
+.footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    padding: 30px 0;
+    margin-top: 100px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #4a9eff;
+}
+
+.footer-link img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.8;
 }
 
 /* Responsive Design */
@@ -453,12 +511,13 @@ button:hover {
 .matrix-title {
     font-size: 6rem;
     font-weight: bold;
-    margin-top: 20px;  /* Changed from margin-bottom */
+    margin-top: -500px;  /* Changed from margin-bottom */
     opacity: 1;
     transition: opacity 0.5s ease;
+    margin-bottom: 0; /* Reduce bottom margin */
 }
 
-/* Remove or comment out the existing profile image styles */
+
 .profile-image {
     display: block;
     width: 250px;
@@ -476,7 +535,139 @@ button:hover {
 }
 
 .corner-profile {
-    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 150px;  /* Increased from 60px */
+    height: 150px; /* Increased from 60px */
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    z-index: 1000;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.corner-profile:hover {
+    transform: scale(1.1); /* Add hover effect */
+}
+
+.corner-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.projects-title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px; /* Reduced from 30px */
+    font-family: 'Honk', system-ui;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    position: relative ;
+    top: -10px;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.about-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: -200px; 
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+}
+
+.about-section h2 {
+    font-family: 'Honk', system-ui;
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.about-section p {
+    font-size: 24px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ...existing code... */
+
+.experience-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 100px;
+    animation: fadeIn 1s ease-out;
+}
+
+.experience-section h2 {
+    font-family: 'Honk', system-ui;
+    font-size: 4.5rem;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.experience-item {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+}
+
+.experience-item h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.experience-item h4 {
+    font-size: 1.4rem;
+    color: #4a9eff;
+    margin-bottom: 10px;
+}
+
+.experience-item p {
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+.experience-date {
+    color: #888;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    border-radius: 20%;
+}
+
+
