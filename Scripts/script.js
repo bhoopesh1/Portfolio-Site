@@ -168,45 +168,78 @@ document.addEventListener('mousemove', (e) => {
   cursor.style.top = e.clientY + 'px';
 });
 
-
+// Update the observer setup for better visibility control
 const projectsSection = document.querySelector('.projects-section');
+const navArrows = document.querySelector('.projects-nav-arrows');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Show arrows only when fully in view
+            navArrows.classList.add('visible');
+        } else {
+            // Hide arrows when out of view
+            navArrows.classList.remove('visible');
+        }
+    });
+}, { 
+    threshold: 0.3, // Increased threshold for more precise detection
+    rootMargin: '0px' // Removed margin to make it exact
+});
+
+observer.observe(projectsSection);
+
+// Update scroll event listener for more precise control
+window.addEventListener('scroll', () => {
+    const rect = projectsSection.getBoundingClientRect();
+    const projectsSectionBottom = projectsSection.offsetTop + projectsSection.offsetHeight;
+    const isInView = window.scrollY >= projectsSection.offsetTop - 100 && 
+                     window.scrollY <= projectsSectionBottom;
+    
+    if (isInView) {
+        navArrows.classList.add('visible');
+    } else {
+        navArrows.classList.remove('visible');
+    }
+});
 
 let scrollAmount = 0;
 let isScrolling = false;
 
 projectsSection.addEventListener('wheel', (e) => {
-  e.preventDefault();
-
-  // Calculate new scroll position
-  let newScrollLeft = projectsSection.scrollLeft + e.deltaY * 3;
-
-  // Stop scrolling if at start or end
-  if (newScrollLeft <= 0 || newScrollLeft >= projectsSection.scrollWidth - projectsSection.clientWidth) {
-    return;
-  }
-
-  scrollAmount += e.deltaY * 3;
-  if (!isScrolling) {
-    isScrolling = true;
-    requestAnimationFrame(smoothScroll);
-  }
+    if (e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        
+        // Increased multiplier from 3 to 8 for faster scrolling
+        scrollAmount = e.deltaY * 10;
+        
+        // Apply the scroll immediately
+        projectsSection.scrollLeft += scrollAmount;
+    }
 });
 
-function smoothScroll() {
-  projectsSection.scrollLeft += scrollAmount / 0.9;
+document.addEventListener('scroll', () => {
+    const aboutSection = document.querySelector('.about-section');
+    const cornerProfile = document.querySelector('.corner-profile');
+    
+    const aboutRect = aboutSection.getBoundingClientRect();
+    // Changed from 0.7 to 0.3 to make the trigger point higher up
+    const isAboutVisible = aboutRect.top < window.innerHeight * 0.3; 
+    const isBackToTop = window.scrollY < 100; // Increased from 100 to 200 for earlier reappearance
+    
+    if (isAboutVisible && !isBackToTop) {
+        cornerProfile.classList.add('hidden');
+    } else {
+        cornerProfile.classList.remove('hidden');
+    }
+});
 
-  // Stop if at the end
-  if (projectsSection.scrollLeft <= 0 || projectsSection.scrollLeft >= projectsSection.scrollWidth - projectsSection.clientWidth) {
-    scrollAmount = 0;
-    isScrolling = false;
-    return;
-  }
+// Add handlers for arrow navigation
+document.querySelector('.nav-arrow.left').addEventListener('click', () => {
+    projectsSection.scrollLeft -= 600; // Scroll one card width
+});
 
-  scrollAmount *= 0.9;
-  if (Math.abs(scrollAmount) > 0.5) {
-    requestAnimationFrame(smoothScroll);
-  } else {
-    isScrolling = false;
-  }
-}
+document.querySelector('.nav-arrow.right').addEventListener('click', () => {
+    projectsSection.scrollLeft += 600; // Scroll one card width
+});
 
