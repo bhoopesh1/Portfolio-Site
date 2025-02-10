@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sudhanthiran's Portfolio</title>
   <link rel="stylesheet" href="desktop_style.css" media="(min-width: 1023px)">
   <link rel="stylesheet" href="mobile_style.css" media="(max-width: 1023px)">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
@@ -17,9 +15,6 @@
 </head>
 <body>
   <div class="custom-cursor"></div>
-  <div class="corner-profile">
-    <img src="/Assets/sudanthiranphoto-removebg-preview.png" alt="Profile">
-  </div>
   <!-- Background SVG Container - Now with correct class -->
   <div class="background-container">
     <svg class="bg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -138,6 +133,12 @@
   </div>
 
   <!-- Navigation -->
+  <div class="hamburger-menu">
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+  </div>
+
   <div class="nav-menu">
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -150,9 +151,8 @@
     <div class="container" id="home">
       <div class="title-container">
         <h1 class="matrix-title">SUDHANTHIRAN</h1>
-        <img src="/Assets/sudanthiranphoto-removebg-preview.png" alt="Sudhanthiran" class="profile-image">
       </div>
-      <p>AI&ML Engineer, FOSS Enthusiast</p>
+      <p id="sub">AI&ML Engineer, FOSS Enthusiast</p>
     </div>
 
     <div class="about-section" id="about">
@@ -233,7 +233,7 @@
     </div>
     
     <div class="experience-section" id="experience">
-        <h2>Education & Experience</h2>
+        <h2 >Education & Experience</h2>
         <div class="experience-container">
             <div class="experience-item">
                 <h3>WORK EXPERIENCE</h3>
@@ -353,5 +353,35 @@
 
     <div class="custom-cursor"></div>
     <script src="script.js"></script>
+    <script>
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+
+    // Toggle menu
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+    });
+
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        });
+    });
+</script>
 </body>
 </html>
