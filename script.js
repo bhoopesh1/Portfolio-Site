@@ -182,6 +182,22 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Add scroll handler for profile image
+window.addEventListener('scroll', () => {
+    const profileImage = document.querySelector('.profile-image');
+    const aboutSection = document.querySelector('#about');
+    const aboutTop = aboutSection.offsetTop;
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > aboutTop - 300) {
+        profileImage.classList.add('hide');
+        profileImage.classList.remove('show');
+    } else {
+        profileImage.classList.remove('hide');
+        profileImage.classList.add('show');
+    }
+});
+
 // Get the projects section and container
 const projectsSection = document.querySelector('.projects-section');
 const projectsContainer = document.querySelector('.projects-container');
@@ -311,16 +327,20 @@ document.querySelector('.nav-arrow.right').addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     setupInfiniteScroll();
     const title = document.querySelector('.matrix-title');
-    const image = document.querySelector('.profile-image');
     const fx = new TextScramble(title);
   
-    // Start the scramble effect
-    fx.setText('SUDHANTHIRAN').then(() => {
-        // Reveal image after text animation
-        setTimeout(() => {
-            image.classList.add('show');
-        }, 300);
-    });
+    // Start the scramble effect without image animation
+    fx.setText('SUDHANTHIRAN');
   
     new InteractiveBackground();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.matrix-title');
+  const fx = new TextScramble(title);
+
+  fx.setText('SUDHANTHIRAN');
+
+  new InteractiveBackground();
+});
+

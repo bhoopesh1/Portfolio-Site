@@ -447,9 +447,8 @@ button:hover {
     text-align: center;
     padding: 0;
     position: relative;
-    top: -2rem; /* Fine-tune vertical position */
+    top: 0; /* Fine-tune vertical position */
 }
-
 
 .projects-title {
     font-size: 7rem;  /* Increased from 4.5rem */
@@ -717,3 +716,10 @@ button:hover {
 .hamburger-menu.active .hamburger-line:nth-child(3) {
     transform: translateY(-0.7rem) rotate(-45deg);  /* Adjusted translation */
 }
+
+.profile-image,
+.profile-image img,
+.profile-image.show {
+    display: none !important;
+}
+

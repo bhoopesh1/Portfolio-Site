@@ -503,15 +503,35 @@ button:hover {
     margin-top: -1rem; /* Add negative margin to move up */
 }
 
+/* Updated profile image styles */
 .profile-image {
-    display: block;
-    width: 250px;
-    height: 275px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 160px;
+    height: 160px;
     opacity: 0;
-    transition: all 0.5s ease;
-    transform: scale(1.0);
-    filter: blur(10px);
-    margin: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top right;
+    z-index: 1000;
+}
+
+.profile-image.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.profile-image.hide {
+    opacity: 0;
+    transform: scale(0.5) translate(50%, -50%);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .corner-capsule {
