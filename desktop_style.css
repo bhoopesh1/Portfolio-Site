@@ -414,41 +414,6 @@ button:hover {
     opacity: 0.8;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .contact-container {
-        gap: 4rem;
-    }
-
-    .contact-info h2 {
-        font-size: 3.5rem;
-    }
-}
-
-@media (max-width: 992px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .contact-info {
-        padding: 0;
-    }
-
-    .text-content {
-        margin-bottom: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-section {
-        padding: 4rem 1.5rem;
-    }
-
-    .contact-info h2 {
-        font-size: 2.5rem;
-    }
-}
 
 #bg-container {
     position: fixed;
@@ -941,8 +906,8 @@ button:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Remove individual positioning for arrows */
 .nav-arrow.left,
 .nav-arrow.right {
     position: relative;
 }
+    
