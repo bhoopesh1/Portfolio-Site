@@ -475,20 +475,33 @@ button:hover {
 .title-container {
     position: relative;
     display: flex;
-    flex-direction: column-reverse;  /* Changed to reverse order */
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 0; /* Removed gap */
+    padding: 0;
+    margin-top: -500px;
 }
 
 .matrix-title {
     font-size: 6rem;
     font-weight: bold;
-    margin-top: -500px;  /* Changed from margin-bottom */
     opacity: 1;
     transition: opacity 0.5s ease;
-    margin-bottom: 0; /* Reduce bottom margin */
+    margin: 0; /* Remove margins */
+    padding: 0;
+    margin-top: 270px;
 }
 
+#sub {
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: rgb(81, 255, 0);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: -1rem; /* Add negative margin to move up */
+}
 
 .profile-image {
     display: block;
@@ -910,4 +923,3 @@ button:hover {
 .nav-arrow.right {
     position: relative;
 }
-    

@@ -15,11 +15,14 @@
 </head>
 <body>
   <div class="custom-cursor"></div>
+  <div class="corner-profile">
+    <img src="/Assets/sudanthiranphoto-removebg-preview.png" alt="Corner Profile">
+  </div>
   <!-- Background SVG Container - Now with correct class -->
   <div class="background-container">
     <svg class="bg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%">
           <stop offset="0%" style="stop-color:#000000"/>
           <stop offset="50%" style="stop-color:#0a0a0a"/>
           <stop offset="100%" style="stop-color:#000000"/>
@@ -35,7 +38,7 @@
           </feMerge>
         </filter>
         
-        <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%">
           <stop offset="0%" style="stop-color:#1e3c72">
             <animate attributeName="stop-color" 
                     values="#1e3c72; #2a5298; #1e3c72" 
@@ -151,8 +154,8 @@
     <div class="container" id="home">
       <div class="title-container">
         <h1 class="matrix-title">SUDHANTHIRAN</h1>
+        <p id="sub">AI&ML Engineer, FOSS Enthusiast</p>
       </div>
-      <p id="sub">AI&ML Engineer, FOSS Enthusiast</p>
     </div>
 
     <div class="about-section" id="about">

@@ -123,47 +123,24 @@ p {
 
 .projects-container {
     display: flex;
-    gap: 20px; /* Reduced from 30px */
-    padding: 20px 30px; /* Reduced side padding */
+    gap: 30px;
+    padding: 20px 50px;
     min-width: max-content;
-    will-change: transform;  /* Optimize for animations */
-    transform: translateZ(0);  /* Enable hardware acceleration */
 }
 
 .project-card {
-    flex: 0 0 60%; /* Reduced from 80% */
-    height: 800px;   /* Changed from fixed height to auto */
-    width: 30px; /* Reduced from 400px */
-    margin: 0 auto;
+    flex: 0 0 90%;  /* Increased from 500px to percentage */
+    min-height: 400px;  /* Increased from 300px */
+    margin: 0 auto;  /* Center cards */
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
-    border-radius: 25px;
-    padding: 30px; /* Reduced from 40px */
+    border-radius: 25px;  /* Increased radius */
+    padding: 40px;  /* Increased padding */
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
     position: relative;
-    
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;  /* Increased from 87px */
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.project-card h3 {
-    margin: 25px 0;
-    font-size: 4.8rem;  /* Increased from 3.5rem for larger titles */
-    line-height: 1.2;
-}
-
-.project-card p {
-    font-size: 3rem;  /* Increased from 1.8rem */
-    line-height: 1.6;
-    margin-top: 15px;
-    font-weight: bolder;
+    touch-action: pan-y;  /* Enable vertical touch gestures */
 }
 
 /* Hide scrollbar but keep functionality */
@@ -176,6 +153,21 @@ p {
 
 .project-card:hover {
     transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 87px; /* Set to exactly 87px */
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.project-card h3 {
+    margin: 20px 0;  /* Increased margin */
+    font-size: 3rem;  /* Increased from 2.2rem */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .project-card h3 a {
@@ -198,11 +190,16 @@ p {
     transition: opacity 0.3s ease;
     margin-top: 6px;
     margin-left: 4px;
-    font-size: 5rem;
 }
 
 .project-card h3 a:hover img.github-icon {
     opacity: 1;
+}
+
+.project-card p {
+    color: #cccccc;
+    font-size: 1.4rem;  /* Increased from 1.2rem */
+    line-height: 1.8;  /* Increased line height */
 }
 
 .project-link {
@@ -221,7 +218,7 @@ p {
 
  
 .contact-section {
-    width: 90%; /* Changed from 100% to create margins */
+    width: 100%;
     max-width: 1200px;
     margin: 30px auto;  /* Reduced margin */
     padding: 20px;  /* Reduced padding */
@@ -230,18 +227,16 @@ p {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Changed from center to allow right extension */
-    margin-right: 20px; /* Add margin to the right side only */
+    align-items: center;
 }
 
 .contact-container {
-    width: calc(100% + 40px); /* Extend 40px more to the right */
-    max-width: 840px; /* Increased from 800px */
-    margin: 0;
-    margin-left: auto; /* Push container to the right */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
-    border-radius: 25px; /* Increased from 20px */
+    border-radius: 20px;
     padding: 40px;
     display: grid;
     grid-template-columns: 1fr;
@@ -268,10 +263,6 @@ p {
     opacity: 0.9;
 }
 
-.contact-section h2 {
-    font-size: 8rem;  /* Increased from default */
-    margin-bottom: 40px;
-}
 
 .contact-form {
     width: 100%;
@@ -293,14 +284,13 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     color: white;
-    font-size: 1.8rem;  /* Increased from 1rem */
+    font-size: 1rem;
     transition: all 0.3s ease;
     margin-bottom: 10px;
-    padding: 1.5rem;  /* Increased padding */
 }
 
 .form-group input {
-    height: 4rem;  /* Increased from 3.5rem */
+    height: 3.5rem;
 }
 
 .form-group textarea {
@@ -327,11 +317,10 @@ button {
     padding: 1rem;
     border: none;
     border-radius: 8px;
-    font-size: 2rem;  /* Increased from 1rem */
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 0.5rem;
-    padding: 1.5rem;  /* Increased padding */
 }
 
 button:hover {
@@ -340,7 +329,7 @@ button:hover {
 
 /* Footer Styles */
 .footer {
-    width: 110%;
+    width: 100%;
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
     padding: 30px 0;
@@ -358,7 +347,7 @@ button:hover {
 .footer-link {
     color: white;
     text-decoration: none;
-    font-size: 3rem;  /* Increased from 1.2rem */
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -370,8 +359,8 @@ button:hover {
 }
 
 .footer-link img {
-    width: 70px;
-    height: 70px;
+    width: 24px;
+    height: 24px;
     opacity: 0.8;
 }
 
@@ -529,7 +518,7 @@ button:hover {
 
 .experience-section h2 {
     font-family: 'Honk', system-ui;
-    font-size: 8.5rem;
+    font-size: 4.5rem;
     color: white;
     margin-bottom: 50px;
 }
@@ -549,28 +538,27 @@ button:hover {
 }
 
 .experience-item h3 {
-    font-size: 3.5rem;  /* Increased from 2rem */
+    font-size: 2rem;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .experience-item h4 {
-    font-size: 2.5rem;  /* Increased from 1.4rem */
+    font-size: 1.4rem;
     color: #4a9eff;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .experience-item p {
-    font-size: 2rem;  /* Increased from 1.2rem */
+    font-size: 1.2rem;
     color: #cccccc;
-    line-height: 1.4;
-    margin-bottom: 15px;
 }
 
 .experience-date {
     color: #888;
-    font-size: 1.8rem;  /* Increased from 1.1rem */
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    border-radius: 20%;
 }
 
 .skills-section {
@@ -587,7 +575,7 @@ button:hover {
 
 .skills-section h2 {
     font-family: 'Honk', system-ui;
-    font-size: 8.5rem;
+    font-size: 4.5rem;
     color: white;
     margin-bottom: 50px;
     text-align: center;
@@ -595,67 +583,44 @@ button:hover {
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Changed to 2 columns */
-    gap: 40px; /* Increased gap between cards */
-    padding: 30px;
-    max-width: 1400px; /* Increased max-width */
-    margin: 0 auto;
-    width: auto; 
-    right: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
 }
 
 .skill-category {
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
-    border-radius: 25px;
-    padding: 40px;
+    border-radius: 20px;
+    padding: 30px;
     text-align: left;
     transition: transform 0.3s ease;
-    min-height: 300px;
-    margin: 0; /* Removed margin: 0 auto */
-    width: auto; /* Removed width: 100% */
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
 }
 
 .skill-category h3 {
-    font-size: 4rem; /* Increased from 3rem */
-    margin-bottom: 30px;
-    color: #4a9eff; /* Added color */
-}
-
-.skill-item {
-    background: rgba(74, 158, 255, 0.2);
-    padding: 15px 25px; /* Increased padding */
-    border-radius: 25px;
+    font-size: 2rem;
     color: white;
-    font-size: 2.5rem; /* Increased from 2rem */
-    margin: 8px;
+    margin-bottom: 20px;
 }
 
 .skill-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px; /* Increased gap */
-    justify-content: flex-start;
+    gap: 10px;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    .skills-container {
-        grid-template-columns: 1fr; /* Single column on mobile */
-    }
-    
-    .skill-category {
-        padding: 30px;
-    }
-    
-    .skill-category h3 {
-        font-size: 3.5rem;
-    }
-    
-    .skill-item {
-        font-size: 2.2rem;
-    }
+.skill-item {
+    background: rgba(74, 158, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.1rem;
 }
+
 
 .institution-name {
     font-size: 1.2em;
@@ -752,6 +717,3 @@ button:hover {
 .hamburger-menu.active .hamburger-line:nth-child(3) {
     transform: translateY(-0.7rem) rotate(-45deg);  /* Adjusted translation */
 }
-
-
-
