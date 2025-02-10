@@ -207,16 +207,15 @@ let scrollAmount = 0;
 let isScrolling = false;
 
 projectsSection.addEventListener('wheel', (e) => {
-    if (e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-        e.preventDefault();
-        
-        // Increased multiplier from 3 to 8 for faster scrolling
-        scrollAmount = e.deltaY * 10;
-        
-        // Apply the scroll immediately
-        projectsSection.scrollLeft += scrollAmount;
-    }
-});
+    e.preventDefault(); // Prevent vertical scrolling
+    
+    // Use deltaY for horizontal scrolling
+    // Increased multiplier for smoother scrolling
+    scrollAmount = e.deltaY * 9;
+    
+    // Apply the scroll
+    projectsSection.scrollLeft += scrollAmount;
+}, { passive: false }); // Add passive: false to ensure preventDefault works
 
 document.addEventListener('scroll', () => {
     const aboutSection = document.querySelector('.about-section');
