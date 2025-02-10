@@ -168,6 +168,20 @@ document.addEventListener('mousemove', (e) => {
   cursor.style.top = e.clientY + 'px';
 });
 
+// Add scroll handler for corner profile
+window.addEventListener('scroll', () => {
+    const cornerProfile = document.querySelector('.corner-profile');
+    const aboutSection = document.querySelector('#about');
+    const aboutTop = aboutSection.offsetTop;
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > aboutTop - 300) {  // Start transition slightly before reaching About section
+        cornerProfile.classList.add('hidden');
+    } else {
+        cornerProfile.classList.remove('hidden');
+    }
+});
+
 // Get the projects section and container
 const projectsSection = document.querySelector('.projects-section');
 const projectsContainer = document.querySelector('.projects-container');
