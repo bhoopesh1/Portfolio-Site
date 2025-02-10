@@ -85,6 +85,13 @@ body {
     height: 100vh;
     padding-top: 0;  /* Remove top padding */
     margin-top: 0;   /* Remove top margin */
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
 }
 
 h1 {
@@ -111,7 +118,7 @@ p {
 
 .projects-section {
     position: relative;
-    width: 100%;
+    width: 100px;
     overflow-x: scroll;  /* Changed from hidden to allow touch scroll */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;  /* Improved touch scrolling */
@@ -119,6 +126,13 @@ p {
     padding: 20px 0;
     touch-action: pan-x;  /* Enable horizontal touch gestures */
     margin-bottom: 20px;  /* Added small margin */
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
 }
 
 .projects-container {
@@ -126,24 +140,27 @@ p {
     gap: 30px;
     padding: 20px 50px;
     min-width: max-content;
+    padding-left: 40px; /* Increased left padding */
+    padding-right: 20px;
 }
 
 .project-card {
-    flex: 0 0 90%;  /* Increased from 500px to percentage */
-    min-height: 400px;  /* Increased from 300px */
+    flex: 0 0 50%;  /* Increased from 500px to percentage */
+    min-height: 450px;  /* Increased from 400px */
     margin: 0 auto;  /* Center cards */
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
     border-radius: 25px;  /* Increased radius */
-    padding: 40px;  /* Increased padding */
+    padding: 30px;  /* Reduced from 40px */
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
     position: relative;
     touch-action: pan-y;  /* Enable vertical touch gestures */
+    height: 900px;
+    width: 20px;
 }
 
-/* Hide scrollbar but keep functionality */
 .projects-section::-webkit-scrollbar {
     display: none;
 }
@@ -157,14 +174,14 @@ p {
 
 .project-card img {
     width: 100%;
-    height: 87px; /* Set to exactly 87px */
+    height: 160px; /* Set to exactly 87px */
     object-fit: cover;
     border-radius: 15px;
 }
 
 .project-card h3 {
-    margin: 20px 0;  /* Increased margin */
-    font-size: 3rem;  /* Increased from 2.2rem */
+    margin: 20px 0;  
+    font-size: 6rem;  
     display: flex;
     align-items: center;
     gap: 10px;
@@ -184,8 +201,8 @@ p {
 }
 
 .project-card h3 a img.github-icon {
-    width: 55px !important; /* Make even smaller and ensure it overrides */
-    height: 55px !important;
+    width: 100px !important; /* Make even smaller and ensure it overrides */
+    height: 100px !important;
     opacity: 100;
     transition: opacity 0.3s ease;
     margin-top: 6px;
@@ -198,8 +215,10 @@ p {
 
 .project-card p {
     color: #cccccc;
-    font-size: 1.4rem;  /* Increased from 1.2rem */
-    line-height: 1.8;  /* Increased line height */
+    font-size: 3.7rem;  /* Adjusted font size */
+    line-height: 1.4;  /* Increased line height */
+    max-height: 900px;  /* Limit text height */
+    overflow-y: auto;  /* Allow scrolling if needed */
 }
 
 .project-link {
@@ -220,14 +239,26 @@ p {
 .contact-section {
     width: 100%;
     max-width: 1200px;
-    margin: 30px auto;  /* Reduced margin */
-    padding: 20px;  /* Reduced padding */
+    margin: 60px auto;  /* Increased margin */
+    padding: 40px 20px;  /* Increased padding */
     text-align: center;
     min-height: auto;  /* Remove fixed height */
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.contact-section h2 {
+    font-size: 6.5rem;  /* Increased from 4.5rem */
+    margin-bottom: 50px;
 }
 
 .contact-container {
@@ -284,7 +315,7 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     color: white;
-    font-size: 1rem;
+    font-size: 2.2rem;  /* Increased from 1rem */
     transition: all 0.3s ease;
     margin-bottom: 10px;
 }
@@ -314,10 +345,10 @@ button {
     width: 100%;
     background: #2255dd;
     color: white;
-    padding: 1rem;
+    padding: 20px;  /* Increased padding */
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 2.5rem;  /* Increased from 16px */
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 0.5rem;
@@ -329,11 +360,11 @@ button:hover {
 
 /* Footer Styles */
 .footer {
-    width: 100%;
+    width: 100%; /* Fix footer width */
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
-    padding: 30px 0;
-    margin-top: 30px;  /* Reduced margin */
+    padding: 50px 20px;  /* Add horizontal padding */
+    margin-top: 60px;  /* Increased from 30px */
 }
 
 .footer-content {
@@ -342,12 +373,13 @@ button:hover {
     display: flex;
     justify-content: center;
     gap: 40px;
+    padding: 0 20px;
 }
 
 .footer-link {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 2.5rem;  /* Increased from 1.2rem */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -359,8 +391,8 @@ button:hover {
 }
 
 .footer-link img {
-    width: 24px;
-    height: 24px;
+    width: 40px;  /* Increased from 24px */
+    height: 40px;
     opacity: 0.8;
 }
 
@@ -435,7 +467,7 @@ button:hover {
     position: relative;
     top: 0;
     z-index: 2;
-    left: 20px;
+    left: 0; /* Remove left offset */
 }
 
 #sub {
@@ -481,6 +513,13 @@ button:hover {
     margin-bottom: 20px;  /* Reduced bottom margin */
     animation: fadeIn 1s ease-out;
     position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
 }
 
 .about-section h2 {
@@ -506,20 +545,28 @@ button:hover {
 
  
 .experience-section {
-    width: 100%;
+    width: 110px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;  /* Reduced padding */
     text-align: center;
     margin-top: 30px;  /* Reduced margin */
     animation: fadeIn 1s ease-out;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
 }
 
 .experience-section h2 {
     font-family: 'Honk', system-ui;
-    font-size: 4.5rem;
+    font-size: 6.5rem;
     color: white;
     margin-bottom: 50px;
+    margin-left: 100px;
 }
 
 .experience-container {
@@ -534,22 +581,23 @@ button:hover {
     border-radius: 20px;
     padding: 30px;
     text-align: left;
+    margin-left: 100px;
 }
 
 .experience-item h3 {
-    font-size: 2rem;
+    font-size: 4rem;
     color: white;
     margin-bottom: 10px;
 }
 
 .experience-item h4 {
-    font-size: 1.4rem;
+    font-size: 3.0rem;
     color: #4a9eff;
     margin-bottom: 10px;
 }
 
 .experience-item p {
-    font-size: 1.2rem;
+    font-size: 2.3rem;
     color: #cccccc;
 }
 
@@ -564,62 +612,83 @@ button:hover {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;  /* Reduced padding */
+    padding: 40px 15px;
     text-align: center;
-    margin-top: 30px;  /* Reduced margin */
+    margin-top: 50px;
     margin-bottom: 30px;
     animation: fadeIn 1s ease-out;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
     position: relative;
 }
 
 .skills-section h2 {
     font-family: 'Honk', system-ui;
-    font-size: 4.5rem;
+    font-size: 6.5rem;
     color: white;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     padding: 20px;
+    margin: 0 auto;
 }
 
 .skill-category {
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 30px;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.skill-category:hover {
-    transform: translateY(-5px);
+    border-radius: 25px;
+    padding: 25px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
 }
 
 .skill-category h3 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 20px;
+    font-size: 3.9rem;
+    margin-bottom: 25px;
+    color: #4a9eff;
 }
 
 .skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: auto;
 }
 
 .skill-item {
-    background: rgba(74, 158, 255, 0.2);
-    padding: 8px 16px;
-    border-radius: 20px;
+    background: rgba(74, 158, 255, 0.3);
+    padding: 10px;
+    border-radius: 15px;
     color: white;
-    font-size: 1.1rem;
+    font-size: 2.8rem;
+    text-align: center;
+    white-space: nowrap;
 }
 
+@media screen and (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-category {
+        min-height: auto;
+    }
+    
+    .skill-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 .institution-name {
     font-size: 1.2em;
