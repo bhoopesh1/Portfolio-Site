@@ -263,7 +263,7 @@ p {
 
 .contact-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 860px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
