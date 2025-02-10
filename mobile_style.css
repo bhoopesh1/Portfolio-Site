@@ -536,6 +536,7 @@ button:hover {
     color: #cccccc;
     margin-bottom: 20px;
     text-align: justify;
+    margin-left: 34px;
 }
 
 @keyframes fadeIn {
