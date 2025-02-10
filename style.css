@@ -82,17 +82,11 @@ p {
 .projects-section {
     position: relative;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 20px 0;
-    white-space: nowrap; /* Ensure horizontal flow */
-}
-
-.projects-section::-webkit-scrollbar {
-    height: 0; /* Hide scrollbar but keep functionality */
-    width: 0;
 }
 
 .projects-container {
@@ -100,25 +94,25 @@ p {
     gap: 30px;
     padding: 20px 50px;
     min-width: max-content;
-    overflow-x: auto; /* Enable horizontal scroll */
-    scroll-snap-type: x mandatory; /* Smooth snap scrolling */
 }
 
 .project-card {
-    flex: 0 0 500px; /* Don't allow cards to shrink or grow */
-    scroll-snap-align: start; /* Snap alignment */
-    white-space: normal; /* Reset white-space for card content */
-    height: 300px; /* Reduced height */
+    flex: 0 0 500px;
+    height: 300px;
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease; /* Smooth hover effect */
-    position: relative; /* Add this for positioning the link */
+    transition: transform 0.3s ease;
+    position: relative;
 }
 
+/* Hide scrollbar but keep functionality */
+.projects-section::-webkit-scrollbar {
+    display: none;
+}
 .project-card:first-child {
     margin-left: 0; /* Remove the left margin from first card */
 }

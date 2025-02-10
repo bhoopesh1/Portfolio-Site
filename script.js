@@ -168,77 +168,117 @@ document.addEventListener('mousemove', (e) => {
   cursor.style.top = e.clientY + 'px';
 });
 
-// Update the observer setup for better visibility control
+// Get the projects section and container
 const projectsSection = document.querySelector('.projects-section');
-const navArrows = document.querySelector('.projects-nav-arrows');
+const projectsContainer = document.querySelector('.projects-container');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Show arrows only when fully in view
-            navArrows.classList.add('visible');
-        } else {
-            // Hide arrows when out of view
-            navArrows.classList.remove('visible');
-        }
-    });
-}, { 
-    threshold: 0.3, // Increased threshold for more precise detection
-    rootMargin: '0px' // Removed margin to make it exact
-});
-
-observer.observe(projectsSection);
-
-// Update scroll event listener for more precise control
-window.addEventListener('scroll', () => {
-    const rect = projectsSection.getBoundingClientRect();
-    const projectsSectionBottom = projectsSection.offsetTop + projectsSection.offsetHeight;
-    const isInView = window.scrollY >= projectsSection.offsetTop - 100 && 
-                     window.scrollY <= projectsSectionBottom;
+// Clone the items for infinite scroll
+function setupInfiniteScroll() {
+    // Clone all project cards
+    const cards = [...projectsContainer.children];
     
-    if (isInView) {
-        navArrows.classList.add('visible');
-    } else {
-        navArrows.classList.remove('visible');
-    }
-});
+    // Add clones to the beginning and end
+    cards.forEach(card => {
+        const startClone = card.cloneNode(true);
+        const endClone = card.cloneNode(true);
+        projectsContainer.appendChild(endClone);
+        projectsContainer.insertBefore(startClone, projectsContainer.firstChild);
+    });
+    
+    // Set initial scroll position to show original items
+    const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight);
+    projectsSection.scrollLeft = cardWidth * cards.length;
+}
 
-let scrollAmount = 0;
+// Handle the infinite scroll effect
 let isScrolling = false;
+let scrollTimeout;
 
 projectsSection.addEventListener('wheel', (e) => {
-    e.preventDefault(); // Prevent vertical scrolling
+    e.preventDefault();
     
-    // Use deltaY for horizontal scrolling
-    // Increased multiplier for smoother scrolling
-    scrollAmount = e.deltaY * 9;
+    if (isScrolling) return;
     
-    // Apply the scroll
-    projectsSection.scrollLeft += scrollAmount;
-}, { passive: false }); // Add passive: false to ensure preventDefault works
-
-document.addEventListener('scroll', () => {
-    const aboutSection = document.querySelector('.about-section');
-    const cornerProfile = document.querySelector('.corner-profile');
+    const cards = [...projectsContainer.querySelectorAll('.project-card')];
+    const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight);
+    const originalCount = cards.length / 3; // Divide by 3 because we cloned the items twice
     
-    const aboutRect = aboutSection.getBoundingClientRect();
-    // Changed from 0.7 to 0.3 to make the trigger point higher up
-    const isAboutVisible = aboutRect.top < window.innerHeight * 0.3; 
-    const isBackToTop = window.scrollY < 100; // Increased from 100 to 200 for earlier reappearance
+    let scrollStep = e.deltaY * 9; // Increased from 2 to 4 for faster scrolling
+    let currentScroll = projectsSection.scrollLeft;
+    let newScrollPosition = currentScroll + scrollStep;
     
-    if (isAboutVisible && !isBackToTop) {
-        cornerProfile.classList.add('hidden');
-    } else {
-        cornerProfile.classList.remove('hidden');
-    }
+    isScrolling = true;
+    
+    projectsSection.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth'
+    });
+    
+    // Reduced timeout from 150ms to 100ms for quicker response
+    scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+        
+        // If scrolled past end clone, jump to original position
+        if (currentScroll >= cardWidth * (originalCount * 2)) {
+            projectsSection.scrollTo({
+                left: cardWidth * originalCount,
+                behavior: 'auto'
+            });
+        }
+        // If scrolled before start clone, jump to original position
+        else if (currentScroll <= 0) {
+            projectsSection.scrollTo({
+                left: cardWidth * originalCount,
+                behavior: 'auto'
+            });
+        }
+    }, 100);
 });
 
-// Add handlers for arrow navigation
+// Handle arrow navigation with infinite loop
 document.querySelector('.nav-arrow.left').addEventListener('click', () => {
-    projectsSection.scrollLeft -= 600; // Scroll one card width
+    const cards = [...projectsContainer.querySelectorAll('.project-card')];
+    const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight);
+    const originalCount = cards.length / 3;
+    let currentScroll = projectsSection.scrollLeft;
+    
+    projectsSection.scrollTo({
+        left: currentScroll - cardWidth,
+        behavior: 'smooth'
+    });
+    
+    setTimeout(() => {
+        if (currentScroll <= cardWidth) {
+            projectsSection.scrollTo({
+                left: cardWidth * originalCount,
+                behavior: 'auto'
+            });
+        }
+    }, 200);  // Reduced from 300ms
 });
 
 document.querySelector('.nav-arrow.right').addEventListener('click', () => {
-    projectsSection.scrollLeft += 600; // Scroll one card width
+    const cards = [...projectsContainer.querySelectorAll('.project-card')];
+    const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight);
+    const originalCount = cards.length / 3;
+    let currentScroll = projectsSection.scrollLeft;
+    
+    projectsSection.scrollTo({
+        left: currentScroll + cardWidth,
+        behavior: 'smooth'
+    });
+    
+    setTimeout(() => {
+        if (currentScroll >= cardWidth * (originalCount * 2 - 1)) {
+            projectsSection.scrollTo({
+                left: cardWidth * originalCount,
+                behavior: 'auto'
+            });
+        }
+    }, 200);  // Reduced from 300ms
 });
 
+// Initialize infinite scroll on page load
+document.addEventListener('DOMContentLoaded', () => {
+    setupInfiniteScroll();
+});
